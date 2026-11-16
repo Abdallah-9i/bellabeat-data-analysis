@@ -58,8 +58,6 @@ The initial exploration focuses on `dailyActivity_merged.csv` and `sleepDay_merg
 
 ### Dataset Overview
 
-The initial analysis focuses on two datasets from the April 12 – May 12, 2016 collection period: daily activity and sleep records.
-
 | Dataset | Records | Columns | Unique Users |
 |---|---:|---:|---:|
 | Daily Activity | 940 | 15 | 33 |
@@ -82,6 +80,8 @@ Contains sleep-related measurements, including total sleep records, minutes asle
 ### Data Quality & Integrity
 
 Data quality checks were performed on the daily activity and sleep datasets to assess missing values, duplicate records, date validity, and measurement consistency.
+
+The data exploration and quality checks are documented in [01_data_exploration.ipynb](notebooks/01_data_exploration.ipynb).
 
 | Quality Check | Daily Activity | Sleep Data |
 |---|---:|---:|
