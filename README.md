@@ -36,3 +36,22 @@ The following stakeholders are identified in the case study scenario:
 The expected outcome is to identify meaningful trends in smart device usage and translate them into actionable, high-level marketing recommendations for a selected Bellabeat product.
 
 These recommendations will be based on the available data and its limitations.
+
+
+## 2. Prepare
+
+### Data Source
+
+The dataset used in this case study is **FitBit Fitness Tracker Data**, publicly available on Kaggle and published by Mobius.
+
+| Attribute | Description |
+|---|---|
+| Dataset | FitBit Fitness Tracker Data |
+| Source | [Kaggle](https://www.kaggle.com/datasets/arashnic/fitbit) |
+| Publisher | Mobius |
+| License | CC0 — Public Domain |
+| Collection Period 1 | March 12 – April 11, 2016 |
+| Collection Period 2 | April 12 – May 12, 2016 |
+| Data Types | Daily activity, steps, calories, sleep, and heart rate measurements |
+
+The initial exploration focuses on `dailyActivity_merged.csv` and `sleepDay_merged.csv` from the second collection period (April 12 – May 12, 2016).
