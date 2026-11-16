@@ -1,2 +1,38 @@
 # bellabeat-data-analysis
 Google Data Analytics Capstone Case Study — Bellabeat Marketing Analysis
+
+
+## 1. Ask
+
+### Business Context
+
+Bellabeat is a health-focused technology company that develops smart wellness products for women. The company aims to identify new growth opportunities in the global smart device market.
+
+This project is a simulated business case study completed as part of the Google Data Analytics Capstone. It does not represent actual employment or commissioned work for Bellabeat.
+
+### Business Task
+
+The objective of this case study is to analyze non-Bellabeat smart device usage data to identify consumer behavior trends and understand how these insights could inform Bellabeat's marketing strategy.
+
+The analysis will examine Fitbit smart device usage data and apply the findings to a selected Bellabeat product to develop data-driven marketing recommendations.
+
+### Business Questions
+
+1. What are some trends in smart device usage?
+2. How could these trends apply to Bellabeat customers?
+3. How could these trends help influence Bellabeat's marketing strategy?
+
+### Key Stakeholders
+
+The following stakeholders are identified in the case study scenario:
+
+- **Urška Sršen:** Co-founder and Chief Creative Officer of Bellabeat.
+- **Sando Mur:** Co-founder and key member of the executive team.
+- **Bellabeat Marketing Analytics Team:** Responsible for collecting, analyzing, and communicating data to support marketing decisions.
+- **Bellabeat Executive Team:** The intended audience for the final findings and recommendations.
+
+### Expected Outcome
+
+The expected outcome is to identify meaningful trends in smart device usage and translate them into actionable, high-level marketing recommendations for a selected Bellabeat product.
+
+These recommendations will be based on the available data and its limitations.
