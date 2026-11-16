@@ -56,7 +56,6 @@ The dataset used in this case study is **FitBit Fitness Tracker Data**, publicly
 
 The initial exploration focuses on `dailyActivity_merged.csv` and `sleepDay_merged.csv` from the second collection period (April 12 – May 12, 2016).
 
-
 ### Dataset Overview
 
 The initial analysis focuses on two datasets from the April 12 – May 12, 2016 collection period: daily activity and sleep records.
@@ -80,7 +79,6 @@ Contains sleep-related measurements, including total sleep records, minutes asle
 - All 24 users in the sleep dataset also appear in the daily activity dataset.
 - Nine users in the daily activity dataset have no records in the sleep dataset.
 
-
 ### Data Quality & Integrity
 
 Data quality checks were performed on the daily activity and sleep datasets to assess missing values, duplicate records, date validity, and measurement consistency.
@@ -101,8 +99,9 @@ Additional consistency checks found:
 
 **Key Finding:** Three exact duplicate records were identified in the sleep dataset. These duplicates will be reviewed and handled during the Process phase.
 
-The checks above did not identify additional issues, but they do not guarantee that the datasets are free from all possible data quality problems.
+**Participant Count Discrepancy:** The dataset documentation mentions 30 participants, while the daily activity file contains 33 unique user IDs. This discrepancy should be considered when assessing the dataset's reliability.
 
+The checks above did not identify additional issues, but they do not guarantee that the datasets are free from all possible data quality problems.
 
 ### Data Credibility (ROCCC Assessment)
 
@@ -124,5 +123,11 @@ The Fitbit dataset was evaluated using the ROCCC framework to assess its credibi
 - **Accessibility:** The dataset is publicly accessible through Kaggle.
 
 **Overall Assessment:** The dataset is suitable for exploratory analysis of smart device usage patterns. However, its limited sample size, historical nature, and incomplete sleep coverage must be considered when interpreting findings and developing marketing recommendations.
+
+### Data Relevance
+
+The selected Fitbit datasets provide information about daily activity and sleep patterns, which are relevant to the business questions of this case study.
+
+These datasets will help explore consumer behavior and identify trends that may inform marketing recommendations for a selected Bellabeat product.
 
 
