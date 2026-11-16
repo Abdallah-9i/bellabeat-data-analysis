@@ -52,6 +52,6 @@ The dataset used in this case study is **FitBit Fitness Tracker Data**, publicly
 | License | CC0 — Public Domain |
 | Collection Period 1 | March 12 – April 11, 2016 |
 | Collection Period 2 | April 12 – May 12, 2016 |
-| Data Types | Daily activity, steps, calories, sleep, and heart rate measurements |
+| Data Categories | Daily activity, steps, calories, sleep, and heart rate measurements |
 
 The initial exploration focuses on `dailyActivity_merged.csv` and `sleepDay_merged.csv` from the second collection period (April 12 – May 12, 2016).
