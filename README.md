@@ -80,3 +80,26 @@ Contains sleep-related measurements, including total sleep records, minutes asle
 - All 24 users in the sleep dataset also appear in the daily activity dataset.
 - Nine users in the daily activity dataset have no records in the sleep dataset.
 
+
+### Data Quality & Integrity
+
+Data quality checks were performed on the daily activity and sleep datasets to assess missing values, duplicate records, date validity, and measurement consistency.
+
+| Quality Check | Daily Activity | Sleep Data |
+|---|---:|---:|
+| Missing Values | 0 | 0 |
+| Exact Duplicate Records | 0 | 3 |
+| Duplicate User-Date Records | 0 | 3 |
+| Invalid Dates | 0 | 0 |
+| Negative Measurements | 0 | 0 |
+
+Additional consistency checks found:
+
+- **Sleep Duration:** No records where minutes asleep exceeded total time in bed.
+- **Sleep Records:** No records with non-positive sleep record counts.
+- **Activity Duration:** No records where total recorded activity minutes exceeded 1,440 minutes.
+
+**Key Finding:** Three exact duplicate records were identified in the sleep dataset. These duplicates will be reviewed and handled during the Process phase.
+
+The checks above did not identify additional issues, but they do not guarantee that the datasets are free from all possible data quality problems.
+
