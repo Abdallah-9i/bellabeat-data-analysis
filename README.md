@@ -55,3 +55,28 @@ The dataset used in this case study is **FitBit Fitness Tracker Data**, publicly
 | Data Categories | Daily activity, steps, calories, sleep, and heart rate measurements |
 
 The initial exploration focuses on `dailyActivity_merged.csv` and `sleepDay_merged.csv` from the second collection period (April 12 – May 12, 2016).
+
+
+### Dataset Overview
+
+The initial analysis focuses on two datasets from the April 12 – May 12, 2016 collection period: daily activity and sleep records.
+
+| Dataset | Records | Columns | Unique Users |
+|---|---:|---:|---:|
+| Daily Activity | 940 | 15 | 33 |
+| Sleep Data | 413 | 5 | 24 |
+
+**Daily Activity (`dailyActivity_merged.csv`)**
+
+Contains daily activity measurements, including steps, distances, activity intensity, active and sedentary minutes, and calories.
+
+**Sleep Data (`sleepDay_merged.csv`)**
+
+Contains sleep-related measurements, including total sleep records, minutes asleep, and total time in bed.
+
+**User Coverage**
+
+- Both datasets cover April 12 – May 12, 2016.
+- All 24 users in the sleep dataset also appear in the daily activity dataset.
+- Nine users in the daily activity dataset have no records in the sleep dataset.
+
