@@ -103,3 +103,26 @@ Additional consistency checks found:
 
 The checks above did not identify additional issues, but they do not guarantee that the datasets are free from all possible data quality problems.
 
+
+### Data Credibility (ROCCC Assessment)
+
+The Fitbit dataset was evaluated using the ROCCC framework to assess its credibility and suitability for the Bellabeat case study.
+
+| Criterion | Assessment |
+|---|---|
+| **Reliable** | The dataset contains recorded fitness tracker measurements, but its small sample size and limited participant information restrict its representativeness. |
+| **Original** | The dataset was republished on Kaggle by Möbius. Its original publication was traced to Furberg et al. (2016) on Zenodo, with data collected through an Amazon Mechanical Turk survey. The original data collection was documented, but its accuracy has not been independently verified. |
+| **Comprehensive** | The dataset includes activity and sleep measurements, but sleep data is available for only 24 of the 33 users identified in the activity dataset. |
+| **Current** | The data was collected in 2016 and may not reflect current smart device usage patterns. |
+| **Cited** | The dataset is publicly available on Kaggle, with an identifiable publisher and a CC0 license. |
+
+#### Licensing & Privacy
+
+- **License:** CC0 — Public Domain, permitting reuse and redistribution.
+- **Privacy:** The analysis uses publicly available fitness tracker records and does not attempt to identify individual participants.
+- **Data Handling:** Raw datasets are stored locally and excluded from Git tracking.
+- **Accessibility:** The dataset is publicly accessible through Kaggle.
+
+**Overall Assessment:** The dataset is suitable for exploratory analysis of smart device usage patterns. However, its limited sample size, historical nature, and incomplete sleep coverage must be considered when interpreting findings and developing marketing recommendations.
+
+
