@@ -131,3 +131,20 @@ The selected Fitbit datasets provide information about daily activity and sleep 
 These datasets will help explore consumer behavior and identify trends that may inform marketing recommendations for a selected Bellabeat product.
 
 
+## 3. Process
+
+### Tools & Technologies
+
+Python, primarily through the Pandas library, was used to clean, transform, and validate the Fitbit datasets. Jupyter Notebook provided a reproducible workflow for documenting the cleaning process and verifying the results.
+
+| Tool | Purpose |
+|---|---|
+| Python (Pandas) | Data cleaning, transformation, and validation |
+| Jupyter Notebook | Executing and documenting the cleaning workflow |
+| VS Code | Development environment |
+| Git & GitHub | Version control and project documentation |
+
+The cleaning process is documented in [02_data_cleaning.ipynb](notebooks/02_data_cleaning.ipynb).
+
+
+
