@@ -171,6 +171,29 @@ The Fitbit datasets were cleaned and transformed using Pandas while preserving t
 
 The original datasets were preserved in `data/raw/`, while all cleaning operations were performed on separate working copies.
 
+### Post-Cleaning Validation
+
+After cleaning, both datasets were validated to confirm that the transformations were successful and that data integrity was maintained.
+
+| Validation Check | Daily Activity | Sleep Data |
+|---|---:|---:|
+| Final Records | 940 | 410 |
+| Unique Users | 33 | 24 |
+| Missing Values | 0 | 0 |
+| Exact Duplicate Records | 0 | 0 |
+| Duplicate User-Date Records | 0 | 0 |
+| Negative Measurements | 0 | 0 |
+
+Additional consistency checks confirmed:
+
+- **Sleep Duration:** No records where minutes asleep exceeded total time in bed.
+- **Sleep Records:** No records with non-positive sleep record counts.
+- **Activity Duration:** No records where total recorded activity minutes exceeded 1,440 minutes.
+
+Both date columns were successfully converted to `datetime` without introducing invalid dates.
+
+**Validation Result:** All performed checks passed. The cleaned datasets are ready for exploratory analysis, although these checks do not guarantee that every recorded measurement is accurate.
+
 
 
 
