@@ -147,4 +147,30 @@ Python, primarily through the Pandas library, was used to clean, transform, and 
 The cleaning process is documented in [02_data_cleaning.ipynb](notebooks/02_data_cleaning.ipynb).
 
 
+### Data Cleaning & Transformation
+
+The Fitbit datasets were cleaned and transformed using Pandas while preserving the original CSV files.
+
+**Date Conversion**
+
+- Converted `ActivityDate` in the daily activity dataset from `object` to `datetime`.
+- Converted `SleepDay` in the sleep dataset from `object` to `datetime`.
+- Verified that both conversions completed without producing invalid or missing dates.
+
+**Duplicate Removal**
+
+- Identified three exact duplicate records in the sleep dataset.
+- Removed the duplicate records using `drop_duplicates()`, retaining one copy of each record.
+- Reset the DataFrame index after removing duplicates.
+- No duplicate records were found in the daily activity dataset.
+
+| Dataset | Rows Before | Rows After | Rows Removed |
+|---|---:|---:|---:|
+| Daily Activity | 940 | 940 | 0 |
+| Sleep Data | 413 | 410 | 3 |
+
+The original datasets were preserved in `data/raw/`, while all cleaning operations were performed on separate working copies.
+
+
+
 
