@@ -224,9 +224,3 @@ __marimo__/
 
 # Raw datasets
 data/raw/
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Python cache
-__pycache__/
