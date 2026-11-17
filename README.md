@@ -194,6 +194,21 @@ Both date columns were successfully converted to `datetime` without introducing 
 
 **Validation Result:** All performed checks passed. The cleaned datasets are ready for exploratory analysis, although these checks do not guarantee that every recorded measurement is accurate.
 
+### Cleaned Datasets
+
+The cleaned datasets were exported as CSV files to the `data/processed/` directory for use in the Analyze phase.
+
+| Dataset | File | Records |
+|---|---|---:|
+| Daily Activity | [daily_activity_cleaned.csv](data/processed/daily_activity_cleaned.csv) | 940 |
+| Sleep Data | [sleep_cleaned.csv](data/processed/sleep_cleaned.csv) | 410 |
+
+Both exported files were successfully reloaded using Pandas, and their row counts were verified against the cleaned DataFrames.
+
+The original datasets remain unchanged in `data/raw/`, which is excluded from Git tracking. The processed datasets are included in the GitHub repository to support reproducibility.
+
+**Note:** CSV files do not preserve Pandas data types. Date columns will be parsed as `datetime` when loading the cleaned datasets for analysis.
+
 
 
 
