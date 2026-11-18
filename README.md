@@ -210,5 +210,80 @@ The original datasets remain unchanged in `data/raw/`, which is excluded from Gi
 **Note:** CSV files do not preserve Pandas data types. Date columns will be parsed as `datetime` when loading the cleaned datasets for analysis.
 
 
+## 4. Analyze
+
+This phase examines daily physical activity, sleep patterns, and the relationships between activity and sleep using Python (Pandas) and PostgreSQL.
+
+Python was used for exploratory and statistical analysis, while SQL provided complementary insights into sleep-record coverage and differences in activity across tracking groups.
+
+**Analysis Files:**
+- [Exploratory Data Analysis Notebook](notebooks/03_exploratory_data_analysis.ipynb)
+- [SQL Analysis](sql/bellabeat_analysis.sql)
+
+### 4.1 Daily Activity Findings
+
+- **Daily Steps:** The average was **7,637.91 steps per daily record**, compared with **7,519.27 steps** when averaging individual users' daily step averages.
+- **Activity Intensity:** Light activity accounted for **84.74% of recorded active minutes**.
+- **Steps and Calories:** A moderate positive correlation was observed between daily steps and calories burned (**r = 0.592**).
+- **Weekly Activity Patterns:** Saturday had the highest average daily steps (**8,152.98**), while Sunday had the lowest (**6,933.23**).
+
+### 4.2 Sleep & Activity Findings
+
+- **Sleep Duration:** Average recorded sleep duration was **419.17 minutes (approximately 6 hours and 59 minutes)** per sleep record.
+- **Sleep Efficiency:** The average ratio of time asleep to time in bed was **91.65%**.
+- **Weekly Sleep Patterns:** Sunday had the highest average sleep duration (**452.75 minutes**), while Thursday had the lowest (**401.30 minutes**).
+- **Steps and Sleep:** A weak negative correlation was observed (**r = -0.190**).
+- **Sedentary Time and Sleep:** A moderate-to-strong negative correlation was observed (**r = -0.601**). Tracking conventions and time-use constraints may influence this association.
+
+These correlations describe relationships within the dataset and do not establish causation.
+
+### 4.3 SQL Analysis Findings
+
+PostgreSQL was used to investigate sleep-record availability across users and weekdays using `LEFT JOIN`, Common Table Expressions (CTEs), `CASE WHEN`, and aggregation functions.
+
+**Sleep Tracking Coverage**
+
+Among the **33 activity users**:
+
+- **3 users** had matching sleep records for every recorded activity day.
+- **21 users** had partial sleep-record coverage.
+- **9 users** had no sleep records.
+
+**Activity by Sleep Tracking Group**
+
+| Tracking Group | Users | Average Daily Steps |
+|---|---:|---:|
+| Complete Coverage | 3 | 9,041.70 |
+| No Sleep Records | 9 | 7,860.03 |
+| Partial Coverage | 21 | 7,155.75 |
+
+The averages above represent the equal-weighted mean of each user's average daily steps.
+
+Users with complete sleep-record coverage had the highest average daily steps. However, this group contained only three users, limiting the strength of comparisons.
+
+**Sleep-Record Coverage by Weekday**
+
+| Day | Activity Records | Matched Sleep Records | Coverage Rate |
+|---|---:|---:|---:|
+| Monday | 120 | 46 | 38.33% |
+| Tuesday | 152 | 65 | 42.76% |
+| Wednesday | 150 | 66 | 44.00% |
+| Thursday | 147 | 64 | 43.54% |
+| Friday | 126 | 57 | 45.24% |
+| Saturday | 124 | 57 | 45.97% |
+| Sunday | 121 | 55 | 45.45% |
+
+Saturday had the highest matching sleep-record coverage (**45.97%**), while Monday had the lowest (**38.33%**).
+
+These rates measure the availability of matching sleep records, not confirmed wearable usage or adherence to sleep tracking.
+
+### 4.4 Analytical Limitations
+
+- The dataset contains **940 activity records from 33 users** and **410 sleep records from 24 users**.
+- User-level recording coverage varies, which may affect averages and group comparisons.
+- The data covers approximately one month in **2016**, limiting its relevance to current consumer behavior.
+- The Fitbit participants are not necessarily representative of Bellabeat customers.
+- Correlations and group differences are observational and should not be interpreted as causal effects.
+
 
 
