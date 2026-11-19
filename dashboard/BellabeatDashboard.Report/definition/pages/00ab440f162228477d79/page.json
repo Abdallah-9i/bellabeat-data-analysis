@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "00ab440f162228477d79",
+  "displayName": "Daily Activity Overview",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "type": "Tooltip"
+}

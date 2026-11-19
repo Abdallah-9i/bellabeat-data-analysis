@@ -1,0 +1,169 @@
+table sleep_cleaned
+	lineageTag: f1bfa749-f1d6-4dca-9aa1-1683f88c744d
+
+	measure 'Sleep Records' =
+			
+			COUNTROWS('sleep_cleaned')
+		formatString: 0
+		lineageTag: b56c0f4b-26f7-4192-978e-269df86575b8
+
+	measure 'Sleep Users' =
+			
+			DISTINCTCOUNT('sleep_cleaned'[Id])
+		formatString: 0
+		lineageTag: 43fd72e6-0878-4b1c-9971-186c7064a907
+
+	measure 'Avg Sleep Duration' = ```
+			
+			FORMAT(
+			    DIVIDE(
+			        AVERAGE('sleep_cleaned'[TotalMinutesAsleep]),
+			        60
+			    ),
+			    "0.0"
+			) & " h"
+			
+			```
+		lineageTag: 44bc9875-cbde-4dc8-a629-b5e9ba234727
+
+	measure 'Avg Sleep Efficiency' =
+			
+			AVERAGEX(
+			    'sleep_cleaned',
+			    DIVIDE(
+			        'sleep_cleaned'[TotalMinutesAsleep],
+			        'sleep_cleaned'[TotalTimeInBed]
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a3273c9c-04c7-48a3-bc4e-87a81e71a4c5
+
+	measure 'Avg Sleep Hours' =
+			
+			DIVIDE(
+			    AVERAGE('sleep_cleaned'[TotalMinutesAsleep]),
+			    60
+			)
+		lineageTag: f85c12da-9b04-466e-9e68-0272492b4f7e
+
+		formatStringDefinition = "0.00 \h"
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: dd53611f-c910-4962-bd2c-c4ad78488c45
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column SleepDay
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cf347f03-fbcf-4c38-b1a4-8cee8f5cd201
+		summarizeBy: none
+		sourceColumn: SleepDay
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TotalSleepRecords
+		dataType: int64
+		formatString: 0
+		lineageTag: f31214d5-9c00-4d2a-8a4d-29912f7b61fb
+		summarizeBy: sum
+		sourceColumn: TotalSleepRecords
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalMinutesAsleep
+		dataType: int64
+		formatString: 0
+		lineageTag: 488b73ce-7bda-4c10-ac5a-c597f087667c
+		summarizeBy: sum
+		sourceColumn: TotalMinutesAsleep
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalTimeInBed
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f2909a0-aac1-4531-841b-a4e8c8ffba5b
+		summarizeBy: sum
+		sourceColumn: TotalTimeInBed
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek = ```
+			
+			FORMAT('sleep_cleaned'[SleepDay], "ddd", "en-US")
+			
+			```
+		lineageTag: c4f2e1d6-7634-444f-be4f-11f1f1686bbe
+		summarizeBy: none
+		sortByColumn: DaySort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaySort =
+			
+			WEEKDAY('sleep_cleaned'[SleepDay], 1)
+		formatString: 0
+		lineageTag: 8df74f46-5995-4ad2-a080-5ed1ad5c7258
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SleepDurationGroup =
+			
+			SWITCH(
+			    TRUE(),
+			    'sleep_cleaned'[TotalMinutesAsleep] < 300, "<5h",
+			    'sleep_cleaned'[TotalMinutesAsleep] < 360, "5–6h",
+			    'sleep_cleaned'[TotalMinutesAsleep] < 420, "6–7h",
+			    'sleep_cleaned'[TotalMinutesAsleep] < 480, "7–8h",
+			    'sleep_cleaned'[TotalMinutesAsleep] < 540, "8–9h",
+			    "9h+"
+			)
+		lineageTag: ae8e2f04-634d-4c0f-b23a-d1739f5b1c14
+		summarizeBy: none
+		sortByColumn: SleepDurationSort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column SleepDurationSort =
+			
+			SWITCH(
+			    TRUE(),
+			    'sleep_cleaned'[TotalMinutesAsleep] < 300, 1,
+			    'sleep_cleaned'[TotalMinutesAsleep] < 360, 2,
+			    'sleep_cleaned'[TotalMinutesAsleep] < 420, 3,
+			    'sleep_cleaned'[TotalMinutesAsleep] < 480, 4,
+			    'sleep_cleaned'[TotalMinutesAsleep] < 540, 5,
+			    6
+			)
+		formatString: 0
+		lineageTag: 62f17c47-e4d0-4e48-8cb8-43be1a28994e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sleep_cleaned = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\tmsaf\OneDrive\سطح المكتب\bellabeat-data-analysis\data\processed\sleep_cleaned.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Id", Int64.Type}, {"SleepDay", type date}, {"TotalSleepRecords", Int64.Type}, {"TotalMinutesAsleep", Int64.Type}, {"TotalTimeInBed", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

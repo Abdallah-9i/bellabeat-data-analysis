@@ -224,3 +224,13 @@ __marimo__/
 
 # Raw datasets
 data/raw/
+
+
+# Power BI Desktop backup
+dashboard/*.pbix
+
+# Power BI temporary and local files
+**/.pbi/
+
+# Ignore Power BI Desktop files
+*.pbix

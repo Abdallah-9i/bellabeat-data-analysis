@@ -1,0 +1,153 @@
+table activity_sleep
+	lineageTag: 5a0ad65f-6dd9-4651-b69e-2a5394b2102d
+
+	measure 'Sleep Hours' = ```
+			
+			DIVIDE(
+			    SUM('activity_sleep'[TotalMinutesAsleep]),
+			    60
+			)
+			
+			```
+		lineageTag: a06b4dcf-e9a0-4a74-856b-e590e7b03b79
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sedentary Hours' = ```
+			
+			DIVIDE(
+			    SUM('activity_sleep'[SedentaryMinutes]),
+			    60
+			)
+			
+			```
+		lineageTag: b6a9ad99-b6ba-410f-8977-c90f19ac40ed
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: df22f944-4ab3-493f-b6d0-e804e9c9a801
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column SleepDay
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 623c47cb-eabc-4a0a-b952-4bf87ec42eb5
+		summarizeBy: none
+		sourceColumn: SleepDay
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TotalSleepRecords
+		dataType: int64
+		formatString: 0
+		lineageTag: 76b291a8-21fa-40b9-b91a-72188548dd35
+		summarizeBy: sum
+		sourceColumn: TotalSleepRecords
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalMinutesAsleep
+		dataType: int64
+		formatString: 0
+		lineageTag: ce239d3d-5586-4755-84d8-c8062fcca4bf
+		summarizeBy: sum
+		sourceColumn: TotalMinutesAsleep
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalTimeInBed
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d506610-8bb6-4a9c-8a9c-9b43e0e58ad7
+		summarizeBy: sum
+		sourceColumn: TotalTimeInBed
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalSteps
+		dataType: int64
+		formatString: 0
+		lineageTag: 981096b4-2e8e-474e-823e-22dbc7ba392e
+		summarizeBy: sum
+		sourceColumn: TotalSteps
+
+		annotation SummarizationSetBy = Automatic
+
+	column VeryActiveMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c8bb690-ff7a-4ebe-bb23-72b99c9c3520
+		summarizeBy: sum
+		sourceColumn: VeryActiveMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column FairlyActiveMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: bcd68896-2d87-471c-a2ed-902ebfe50d92
+		summarizeBy: sum
+		sourceColumn: FairlyActiveMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column LightlyActiveMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: fc735608-a8e7-4ce4-9962-69e75240241e
+		summarizeBy: sum
+		sourceColumn: LightlyActiveMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column SedentaryMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 236d2375-6cdb-4fc1-9aab-f5e5ce2f8953
+		summarizeBy: sum
+		sourceColumn: SedentaryMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Calories
+		dataType: int64
+		formatString: 0
+		lineageTag: f736a8d5-58a1-403d-8fd9-7426eca47773
+		summarizeBy: sum
+		sourceColumn: Calories
+
+		annotation SummarizationSetBy = Automatic
+
+	column SleepActivityPoint = ```
+			
+			FORMAT('activity_sleep'[Id], "0")
+			& "_" &
+			FORMAT('activity_sleep'[SleepDay], "yyyyMMdd")
+			
+			```
+		lineageTag: 18e9c12f-92a0-4a20-a3da-b6024e867048
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition activity_sleep = m
+		mode: import
+		source =
+				let
+				    Source = Table.NestedJoin(sleep_cleaned, {"Id", "SleepDay"}, daily_activity_cleaned, {"Id", "ActivityDate"}, "daily_activity_cleaned", JoinKind.Inner),
+				    #"Expanded daily_activity_cleaned" = Table.ExpandTableColumn(Source, "daily_activity_cleaned", {"TotalSteps", "VeryActiveMinutes", "FairlyActiveMinutes", "LightlyActiveMinutes", "SedentaryMinutes", "Calories"}, {"TotalSteps", "VeryActiveMinutes", "FairlyActiveMinutes", "LightlyActiveMinutes", "SedentaryMinutes", "Calories"})
+				in
+				    #"Expanded daily_activity_cleaned"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

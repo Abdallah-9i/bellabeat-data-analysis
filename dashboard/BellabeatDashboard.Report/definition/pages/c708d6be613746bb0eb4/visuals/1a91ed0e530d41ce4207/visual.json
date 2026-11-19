@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1a91ed0e530d41ce4207",
+  "position": {
+    "x": 965,
+    "y": 105,
+    "z": 3,
+    "height": 90,
+    "width": 295,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sleep_cleaned"
+                    }
+                  },
+                  "Property": "Avg Sleep Efficiency"
+                }
+              },
+              "queryRef": "sleep_cleaned.Avg Sleep Efficiency",
+              "nativeQueryRef": "Avg Sleep Efficiency"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "sleep_cleaned"
+                  }
+                },
+                "Property": "Avg Sleep Efficiency"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

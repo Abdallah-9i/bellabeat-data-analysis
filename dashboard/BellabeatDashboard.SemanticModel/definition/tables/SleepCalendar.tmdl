@@ -1,0 +1,30 @@
+table SleepCalendar
+	lineageTag: 4e627cd3-2bb2-4743-8c64-ee5935452383
+
+	column Date
+		formatString: General Date
+		lineageTag: 43787f51-7a68-4004-ab09-91550fc5a2b1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: f9d3a1e2-3063-4e13-a53c-3583487857e2
+			defaultHierarchy: LocalDateTable_f2e0ff51-8327-4ff3-bd85-872d94125d33.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SleepCalendar = calculated
+		mode: import
+		source = ```
+				
+				CALENDAR(
+				    MIN('sleep_cleaned'[SleepDay]),
+				    MAX('sleep_cleaned'[SleepDay])
+				)
+				
+				```
+
+	annotation PBI_Id = 77ccc6e990dd4c508a560649783eb993
+

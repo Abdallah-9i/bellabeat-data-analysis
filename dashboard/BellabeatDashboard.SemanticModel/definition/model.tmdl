@@ -1,0 +1,25 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["sleep_cleaned","daily_activity_cleaned","activity_sleep"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table sleep_cleaned
+ref table DateTableTemplate_de77db16-c25c-44e4-827b-6c35167ad908
+ref table daily_activity_cleaned
+ref table LocalDateTable_299c9b85-d8fd-44a4-a9e3-29ee1e7d331e
+ref table activity_sleep
+ref table SleepCalendar
+ref table LocalDateTable_f2e0ff51-8327-4ff3-bd85-872d94125d33
+
+ref cultureInfo en-GB
+

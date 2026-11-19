@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "85e48052b02266c724de",
+  "position": {
+    "x": 650,
+    "y": 105,
+    "z": 2000,
+    "height": 90,
+    "width": 295,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "daily_activity_cleaned"
+                    }
+                  },
+                  "Property": "Avg Daily Calories"
+                }
+              },
+              "queryRef": "daily_activity_cleaned.Avg Daily Calories",
+              "nativeQueryRef": "Avg Daily Calories"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "daily_activity_cleaned"
+                  }
+                },
+                "Property": "Avg Daily Calories"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2f740e4b5be993e55572",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "daily_activity_cleaned"
+              }
+            },
+            "Property": "Avg Daily Calories"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "52d36496250aba7db0a1",
+  "position": {
+    "x": 965,
+    "y": 105,
+    "z": 1000,
+    "height": 90,
+    "width": 295,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "daily_activity_cleaned"
+                    }
+                  },
+                  "Property": "Avg Daily Steps"
+                }
+              },
+              "queryRef": "daily_activity_cleaned.Avg Daily Steps",
+              "nativeQueryRef": "Avg Daily Steps"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "daily_activity_cleaned"
+                  }
+                },
+                "Property": "Avg Daily Steps"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "768d68704e659820bd7b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "daily_activity_cleaned"
+              }
+            },
+            "Property": "Avg Daily Steps"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

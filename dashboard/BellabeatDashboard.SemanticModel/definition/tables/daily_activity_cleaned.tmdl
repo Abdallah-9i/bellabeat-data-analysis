@@ -1,0 +1,235 @@
+table daily_activity_cleaned
+	lineageTag: defd0d9c-c33a-412c-8374-e665b9356e20
+
+	measure 'Total Users' = ```
+			
+			DISTINCTCOUNT('daily_activity_cleaned'[Id])
+			
+			```
+		formatString: 0
+		lineageTag: 4aec35eb-0f25-4acd-9901-ec0bcc9630d6
+
+	measure 'Avg Daily Steps' =
+			
+			AVERAGE('daily_activity_cleaned'[TotalSteps])
+		lineageTag: 1640741b-35de-4d0a-aa6a-4741091e2691
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Daily Calories' = ```
+			
+			AVERAGE('daily_activity_cleaned'[Calories])
+			
+			```
+		lineageTag: bf340136-a19a-4308-a5f6-3bb6327e921e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 780c539b-ecdc-43ad-a252-e029a10306ba
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActivityDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: badc019b-c8d4-4269-be87-9626f56cbd26
+		summarizeBy: none
+		sourceColumn: ActivityDate
+
+		variation Variation
+			isDefault
+			relationship: f8de3a12-bb5b-47b4-a59b-d4a9c7e01707
+			defaultHierarchy: LocalDateTable_299c9b85-d8fd-44a4-a9e3-29ee1e7d331e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TotalSteps
+		dataType: int64
+		formatString: 0
+		lineageTag: b1a7fb46-f8ef-4a7e-9ab8-58830ffd3d15
+		summarizeBy: sum
+		sourceColumn: TotalSteps
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalDistance
+		dataType: double
+		lineageTag: 9b52bcfc-8402-464b-a6d3-170427f57ec5
+		summarizeBy: sum
+		sourceColumn: TotalDistance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TrackerDistance
+		dataType: double
+		lineageTag: a96157e7-b702-40f5-91b7-1fd419639874
+		summarizeBy: sum
+		sourceColumn: TrackerDistance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LoggedActivitiesDistance
+		dataType: double
+		lineageTag: d6cb206c-7733-4c01-a0b5-db4b8af33093
+		summarizeBy: sum
+		sourceColumn: LoggedActivitiesDistance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VeryActiveDistance
+		dataType: double
+		lineageTag: 6c85be8a-a501-4685-9a91-e519b3f5fc4b
+		summarizeBy: sum
+		sourceColumn: VeryActiveDistance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ModeratelyActiveDistance
+		dataType: double
+		lineageTag: ee1af4f3-1a68-4f7c-a096-d87ce75fb73a
+		summarizeBy: sum
+		sourceColumn: ModeratelyActiveDistance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LightActiveDistance
+		dataType: double
+		lineageTag: 570c9376-ee2a-46dc-81c3-41efee82a83e
+		summarizeBy: sum
+		sourceColumn: LightActiveDistance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SedentaryActiveDistance
+		dataType: double
+		lineageTag: 7da95e65-7c16-479e-a01d-7948fc4d21d2
+		summarizeBy: sum
+		sourceColumn: SedentaryActiveDistance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VeryActiveMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c7bb116-86a8-4ae8-baf4-ef09ba56d94d
+		summarizeBy: sum
+		sourceColumn: VeryActiveMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column FairlyActiveMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: f7ef1e86-d910-42a6-b20a-be30554489b5
+		summarizeBy: sum
+		sourceColumn: FairlyActiveMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column LightlyActiveMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 639c35a8-fe77-4739-b6c3-0e2a1593bf70
+		summarizeBy: sum
+		sourceColumn: LightlyActiveMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column SedentaryMinutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 3bad4cf0-4b65-4c9b-be51-013b66550e5a
+		summarizeBy: sum
+		sourceColumn: SedentaryMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Calories
+		dataType: int64
+		formatString: 0
+		lineageTag: cc7fad31-f705-4e80-81c5-ccecb8095370
+		summarizeBy: sum
+		sourceColumn: Calories
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Records' = ```
+			
+			COUNTROWS('daily_activity_cleaned')
+			
+			```
+		formatString: 0
+		lineageTag: e9b92f78-ecf2-4a2b-9bd6-525359c6588a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek = ```
+			
+			FORMAT('daily_activity_cleaned'[ActivityDate], "ddd", "en-US")
+			
+			```
+		lineageTag: e64474e2-7753-49a9-a400-e25ca6990db6
+		summarizeBy: none
+		sortByColumn: DaySort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaySort =
+			
+			WEEKDAY('daily_activity_cleaned'[ActivityDate], 1)
+		formatString: 0
+		lineageTag: 2ad82d14-c5ea-4645-b4d0-b1c6b1c7ceb9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActivityPoint = ```
+			
+			FORMAT('daily_activity_cleaned'[Id], "0")
+			& "_" &
+			FORMAT('daily_activity_cleaned'[ActivityDate], "yyyyMMdd")
+			
+			```
+		lineageTag: 86a40ab8-d25f-4f72-82b2-91a2f8fbc7cc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition daily_activity_cleaned = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\tmsaf\OneDrive\سطح المكتب\bellabeat-data-analysis\data\processed\daily_activity_cleaned.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Id", Int64.Type}, {"ActivityDate", type date}, {"TotalSteps", Int64.Type}, {"TotalDistance", type number}, {"TrackerDistance", type number}, {"LoggedActivitiesDistance", type number}, {"VeryActiveDistance", type number}, {"ModeratelyActiveDistance", type number}, {"LightActiveDistance", type number}, {"SedentaryActiveDistance", type number}, {"VeryActiveMinutes", Int64.Type}, {"FairlyActiveMinutes", Int64.Type}, {"LightlyActiveMinutes", Int64.Type}, {"SedentaryMinutes", Int64.Type}, {"Calories", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "BellabeatDashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5ddb8f37-c672-4101-91a6-66845bd92644"
+  }
+}

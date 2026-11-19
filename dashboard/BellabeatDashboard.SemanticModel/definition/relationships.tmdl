@@ -1,0 +1,18 @@
+relationship f8de3a12-bb5b-47b4-a59b-d4a9c7e01707
+	joinOnDateBehavior: datePartOnly
+	fromColumn: daily_activity_cleaned.ActivityDate
+	toColumn: LocalDateTable_299c9b85-d8fd-44a4-a9e3-29ee1e7d331e.Date
+
+relationship f9d3a1e2-3063-4e13-a53c-3583487857e2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SleepCalendar.Date
+	toColumn: LocalDateTable_f2e0ff51-8327-4ff3-bd85-872d94125d33.Date
+
+relationship 146c8c05-f2dd-c1c2-b510-8b6369abf23b
+	fromColumn: sleep_cleaned.SleepDay
+	toColumn: SleepCalendar.Date
+
+relationship 7fab149c-9876-b11c-2303-b52c5ba00a52
+	fromColumn: activity_sleep.SleepDay
+	toColumn: SleepCalendar.Date
+
