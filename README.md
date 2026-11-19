@@ -2,6 +2,17 @@
 Google Data Analytics Capstone Case Study — Bellabeat Marketing Analysis
 
 
+## Power BI Dashboard Preview
+
+### Daily Activity Overview
+
+![Daily Activity Overview](dashboard/screenshots/Bellabeat_Daily_Activity_Overview.png)
+
+### Sleep Analysis
+
+![Sleep Analysis](dashboard/screenshots/Bellabeat_Sleep_Analysis.png)
+
+
 ## 1. Ask
 
 ### Business Context
