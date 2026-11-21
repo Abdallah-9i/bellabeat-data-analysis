@@ -352,8 +352,15 @@ Bellabeat should test these recommendations, monitor user engagement, and valida
 
 These recommendations are based on exploratory analysis, and observed correlations do not imply causation.
 
+## Conclusion
 
+This project analyzed Fitbit activity and sleep data using **Python, SQL, and Power BI** to identify patterns and develop marketing recommendations for Bellabeat.
 
+The analysis highlighted differences in daily activity, sleep duration, and the relationships between physical activity, calories burned, and sedentary time.
+
+The findings suggest opportunities for Bellabeat to encourage daily movement, promote sleep awareness, and improve personalized user engagement.
+
+However, the small sample size and incomplete sleep records limit the generalizability of the findings. Further research with a larger dataset is recommended before implementing the proposed strategies.
 
 
 
