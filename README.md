@@ -4,6 +4,10 @@ Google Data Analytics Capstone Case Study — Bellabeat Marketing Analysis
 
 ## Power BI Dashboard Preview
 
+### [View the Interactive Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDQwM2FmMGEtZDQzZS00MjMyLTk1Y2YtODAyYjExYjkyNzk2IiwidCI6Ijc5YTA1N2ZiLWIwZDUtNDRkZC04ZjkwLTBiZjcxNTFmNWMzZiIsImMiOjl9&language=en-US)
+
+> Click the link above to interact with the dashboard, filters, and slicers.
+
 ### Daily Activity Overview
 
 ![Daily Activity Overview](dashboard/screenshots/Bellabeat_Daily_Activity_Overview.png)
@@ -284,10 +288,6 @@ Users with complete sleep-record coverage had the highest average daily steps. H
 | Saturday | 124 | 57 | 45.97% |
 | Sunday | 121 | 55 | 45.45% |
 
-Saturday had the highest matching sleep-record coverage (**45.97%**), while Monday had the lowest (**38.33%**).
-
-These rates measure the availability of matching sleep records, not confirmed wearable usage or adherence to sleep tracking.
-
 ### 4.4 Analytical Limitations
 
 - The dataset contains **940 activity records from 33 users** and **410 sleep records from 24 users**.
@@ -295,6 +295,44 @@ These rates measure the availability of matching sleep records, not confirmed we
 - The data covers approximately one month in **2016**, limiting its relevance to current consumer behavior.
 - The Fitbit participants are not necessarily representative of Bellabeat customers.
 - Correlations and group differences are observational and should not be interpreted as causal effects.
+
+## 5. Share
+
+### Power BI Dashboard
+
+An interactive Power BI dashboard was developed to communicate the key findings from the Bellabeat Data Analysis project. The dashboard consists of two pages: **Daily Activity Overview** and **Sleep Analysis**.
+
+The dashboard includes KPI cards, visualizations, trend lines, and date-range filters to support interactive data exploration.
+
+#### Page 1: Daily Activity Overview
+
+This page presents daily activity patterns across **940 records from 33 users**.
+
+- **KPI Cards:** Total activity records, unique users, average daily steps, and average daily calories burned.
+- **Activity Intensity Distribution:** Comparison of lightly, fairly, and very active minutes.
+- **Average Daily Steps by Weekday:** Comparison of walking activity across the week.
+- **Daily Steps vs. Calories Burned:** Scatter plot showing the positive relationship between daily steps and calories burned (r = 0.592).
+
+#### Page 2: Sleep Analysis
+
+This page examines sleep patterns across **410 records from 24 users**.
+
+- **KPI Cards:** Total sleep records, unique users, average sleep duration, and sleep efficiency.
+- **Average Sleep Duration by Weekday:** Comparison of average sleep duration across the week.
+- **Sleep Duration Distribution:** Distribution of sleep records across six duration categories.
+- **Sedentary Hours vs. Sleep Hours:** Scatter plot showing the negative correlation between sedentary time and sleep duration (r = -0.601).
+
+Both dashboard pages include date-range filters for exploring patterns across different periods.
+
+
+### Dashboard Files
+
+The dashboard preview images and an interactive Power BI dashboard link are available at the beginning of this README.
+
+The dashboard was designed to communicate the analytical findings clearly and support the development of data-driven marketing recommendations.
+
+
+
 
 
 
